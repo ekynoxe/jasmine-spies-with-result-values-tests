@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Jasmine Spec Runner for Bar Foo</title>
+
+    <link rel="stylesheet" type="text/css" href="lib/jasmine.css">
+    <script type="text/javascript" src="lib/jasmine.js"></script>
+    <script type="text/javascript" src="lib/jasmine-html.js"></script>
+
+    <script type="text/javascript" src="../src/BarFoo.js"></script>
+    
+    <script type="text/javascript" src="spec/spec.js"></script>
+
+    <script type="text/javascript">
+        (function run() {
+            var jasmineEnv = jasmine.getEnv(),
+                trivialReporter,
+                currentWindowOnload;
+
+            jasmineEnv.updateInterval = 1000;
+
+            trivialReporter = new jasmine.TrivialReporter();
+
+            jasmineEnv.addReporter(trivialReporter);
+
+            jasmineEnv.specFilter = function (spec) {
+                return trivialReporter.specFilter(spec);
+            };
+
+            currentWindowOnload = window.onload;
+
+            window.onload = function () {
+                if (currentWindowOnload) {
+                    currentWindowOnload();
+                }
+                execJasmine();
+            };
+
+            function execJasmine() {
+                jasmineEnv.execute();
+            }
+        })();
+    </script>
+</head>
+<body>
+</body>
+</html>

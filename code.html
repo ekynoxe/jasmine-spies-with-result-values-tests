@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Bar Foo</title>
+    <script type="text/javascript" src="src/BarFoo.js"></script>
+
+    <script>
+    function init () {
+        bar.init('out', [
+            { 'process': true, parts: ['Hello', 'from', 'bar']},
+            { 'process': true, parts: ['Hi', 'from', 'foo']},
+            { 'process': false, parts: ['Ignore', 'me']},
+            { 'process': true, parts: ['Hey', 'from', 'bar', 'foo']}
+        ]);
+
+        bar.start();
+    }
+
+    window.onload = init;
+    </script>
+</head>
+<body>
+    <h2>Here's some code using Bar Foo</h2>
+    <p>It doesn't do anything more than print out some concatenated strings, but that's for to illustrate the example set out in my blog post about a potential missing bit of functionality in Jasmine. Read it all here: <a href="http://blog.ekynoxe.com/2012/08/26/evaluating-function-return-values-with-jasmine/">http://blog.ekynoxe.com/2012/08/26/evaluating-function-return-values-with-jasmine/</a></p>
+    <h2>Output result</h2>
+    <div class="out"></div>
+</body>
+</html>
